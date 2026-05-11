@@ -33,6 +33,10 @@ const Ticket = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false
     },
+    waktu: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
   },
   {
     tableName: "ticket",

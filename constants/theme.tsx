@@ -1,0 +1,1 @@
+export const NAVTEXT = "font-medium transition-colors text-slate-500 hover:text-indigo";

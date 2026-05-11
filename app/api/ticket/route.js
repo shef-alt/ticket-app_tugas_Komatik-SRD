@@ -11,7 +11,6 @@ async function initDB() {
 }
 
 export async function GET() {
-    console.log("API TICKET KEHIT");
   await initDB();
 
   const tickets = await Ticket.findAll();

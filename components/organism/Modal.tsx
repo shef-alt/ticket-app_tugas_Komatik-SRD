@@ -3,23 +3,19 @@ import {
   Calendar, 
   MapPin, 
   Info, 
-  X, 
   Clock
 } from 'lucide-react';
+import Cancel from "@/components/atoms/Cancel"
+import { useTicket } from "@/store/useTicket";
 
-const Modal = ({selectedTicket, setSelectedTicket}) => {
+const Modal = () => {
+  const { selectedTicket } = useTicket();
   return (
     <div>
       {selectedTicket && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm transition-opacity">
           <div className="bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl relative animate-in zoom-in duration-200">
-            <button 
-              onClick={() => setSelectedTicket(null)}
-              className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
+            <Cancel />
             <div className="md:flex h-full max-h-[90vh] overflow-y-auto no-scrollbar">
               <div className="md:w-1/2 h-64 md:h-auto relative">
                 <Image
@@ -38,7 +34,7 @@ const Modal = ({selectedTicket, setSelectedTicket}) => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
                     <div className="bg-indigo-50 p-2 rounded-lg">
-                      <Calendar className="text-indigo-600 w-5 h-5" />
+                      <Calendar className="text-indigo w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400 font-medium">Tanggal</p>
@@ -50,17 +46,17 @@ const Modal = ({selectedTicket, setSelectedTicket}) => {
 
                   <div className="flex items-center gap-3">
                     <div className="bg-indigo-50 p-2 rounded-lg">
-                      <Clock className="text-indigo-600 w-5 h-5" />
+                      <Clock className="text-indigo w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400 font-medium">Waktu</p>
-                      <p className="text-sm font-semibold text-slate-700">{selectedTicket.time} WIB</p>
+                      <p className="text-sm font-semibold text-slate-700">{selectedTicket.waktu.slice(0, 5)} WIB</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <div className="bg-indigo-50 p-2 rounded-lg">
-                      <MapPin className="text-indigo-600 w-5 h-5" />
+                      <MapPin className="text-indigo w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400 font-medium">Lokasi</p>
@@ -71,7 +67,7 @@ const Modal = ({selectedTicket, setSelectedTicket}) => {
 
                 <div className="mb-8">
                   <h4 className="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
-                    <Info className="w-4 h-4 text-indigo-500" />
+                    <Info className="w-4 h-4 text-indigo" />
                     Tentang Event
                   </h4>
                   <p className="text-sm text-slate-500 leading-relaxed">
@@ -82,12 +78,14 @@ const Modal = ({selectedTicket, setSelectedTicket}) => {
                 <div className="mt-auto border-t border-slate-100 pt-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-sm text-slate-400">Harga Tiket</span>
-                    <span className="text-2xl font-black text-indigo-600">{(selectedTicket.harga)}</span>
+                    <span className="text-2xl font-black text-indigo">{(selectedTicket.harga)}</span>
                   </div>
-                  
-                  <p className="text-center text-[10px] text-slate-400 mt-4">
-                    Sisa {selectedTicket.available} tiket tersedia saat ini.
-                  </p>
+                  <button 
+                    className="w-full py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all shadow-xl shadow-indigo-100 active:scale-95 bg-indigo text-white hover:bg-indigo-700 cursor-pointer
+                    "
+                  >
+                    Beli Ticket
+                  </button>
                 </div>
               </div>
             </div>
