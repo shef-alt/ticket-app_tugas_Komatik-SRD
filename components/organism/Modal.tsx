@@ -50,7 +50,7 @@ const Modal = () => {
                     </div>
                     <div>
                       <p className="text-xs text-slate-400 font-medium">Waktu</p>
-                      <p className="text-sm font-semibold text-slate-700">{selectedTicket.waktu.slice(0, 5)} WIB</p>
+                      <p className="text-sm font-semibold text-slate-700">{selectedTicket.waktu} WIB</p>
                     </div>
                   </div>
 
@@ -84,7 +84,7 @@ const Modal = () => {
                     className="w-full py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all shadow-xl shadow-indigo-100 active:scale-95 bg-indigo text-white hover:bg-indigo-700 cursor-pointer
                     "
                   >
-                    Beli Ticket
+                    Beli Tiket
                   </button>
                 </div>
               </div>

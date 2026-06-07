@@ -56,7 +56,7 @@ const TicketList = () => {
   }
 
   if (error) {
-    return <p className="text-center text-xl text-red-400">{error}</p>;
+    return <p className="text-center text-xl text-red-400">{error.message}</p>;
   }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -91,7 +91,7 @@ const TicketList = () => {
               {t.daftarEvent}
             </h3>
             <div className="flex items-start gap-2 text-sm text-slate-500 mb-4 h-10 line-clamp-2">
-              <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-400" />
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-red-400" />
               {t.tempat}
             </div>
 

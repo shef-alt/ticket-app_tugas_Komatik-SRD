@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "components/button,tsx", "app/page.tsx", "app/providers.tsx"  ],
+, "components/button,tsx", "app/page.tsx", "app/providers.tsx", "lib/jwt.ts", "app/api/login/route.js", "models/user.js", "app/api/ticket/route.js"  ],
   "exclude": ["node_modules"]
 }
